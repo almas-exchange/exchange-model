@@ -1,0 +1,31 @@
+{
+    "name": "almas-exchange/exchange-model",
+    "description": "The models of almas exchange project",
+    "keywords": [],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+
+    },
+    "authors": [
+        {
+            "name": "Milyoona",
+            "email": "hi@milyoona.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ExchangeModel\\": "app/"
+        },
+        "files": [
+            "helper/functions.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ExchangeModel\\Providers\\ExchangeModelServiceProvider"
+            ]
+        }
+    }
+}
