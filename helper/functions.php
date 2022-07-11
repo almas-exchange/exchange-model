@@ -14,43 +14,43 @@ if ( ! function_exists('getNameWithIban') ) {
         $code = substr($iban, 2, 3);
         switch ($code) {
             case '055':
-                return ['bank_name' => 'Eghtesad Novin', 'label' => 'بانک اقتصاد نوین', 'code' => 'en'];
+                return ['bank_name' => 'Eghtesad Novin', 'label' => 'اقتصاد نوین', 'code' => 'en'];
             case '054':
-                return ['bank_name' => 'Parsian', 'label' => 'بانک پارسیان', 'code' => 'parsian'];
+                return ['bank_name' => 'Parsian', 'label' => 'پارسیان', 'code' => 'parsian'];
             case '057':
-                return ['bank_name' => 'Pasargad', 'label' => 'بانک پاسارگاد', 'code' => 'bpi'];
+                return ['bank_name' => 'Pasargad', 'label' => 'پاسارگاد', 'code' => 'bpi'];
             case '021':
-                return ['bank_name' => 'Iran Post Bank', 'label' => 'پست بانک ایران', 'code' => 'post'];
+                return ['bank_name' => 'Iran Post Bank', 'label' => 'پست بانک', 'code' => 'post'];
             case '018':
-                return ['bank_name' => 'Tejarat', 'label' => 'بانک تجارت', 'code' => 'tejarat'];
+                return ['bank_name' => 'Tejarat', 'label' => 'تجارت', 'code' => 'tejarat'];
             case '051':
                 return ['bank_name' => 'Moasese Etebari Tose-e', 'label' => 'موسسه اعتباری توسعه', 'code' => 'tt'];
             case '020':
-                return ['bank_name' => 'Tose-e Saderat', 'label' => 'بانک توسعه تجارت', 'code' => 'tt'];
+                return ['bank_name' => 'Tose-e Saderat', 'label' => 'توسعه تجارت', 'code' => 'tt'];
             case '013':
-                return ['bank_name' => 'Refah', 'label' => 'بانک رفاه', 'code' => 'rb'];
+                return ['bank_name' => 'Refah', 'label' => 'رفاه', 'code' => 'rb'];
             case '056':
-                return ['bank_name' => 'Saman', 'label' => 'بانک سامان', 'code' => 'sb'];
+                return ['bank_name' => 'Saman', 'label' => 'سامان', 'code' => 'sb'];
             case '015':
-                return ['bank_name' => 'Sepah', 'label' => 'بانک سپه', 'code' => 'sepah'];
+                return ['bank_name' => 'Sepah', 'label' => 'سپه', 'code' => 'sepah'];
             case '058':
-                return ['bank_name' => 'Sarmayeh', 'label' => 'بانک سرمایه', 'code' => 'sarmayeh'];
+                return ['bank_name' => 'Sarmayeh', 'label' => 'سرمایه', 'code' => 'sarmayeh'];
             case '019':
-                return ['bank_name' => 'Saderat Iran', 'label' => 'بانک صادرات ایران', 'code' => 'bsi'];
+                return ['bank_name' => 'Saderat Iran', 'label' => 'صادرات ایران', 'code' => 'bsi'];
             case '011':
-                return ['bank_name' => 'Sanat Madan', 'label' => 'بانک صنعت و معدن', 'code' => 'bim'];
+                return ['bank_name' => 'Sanat Madan', 'label' => 'صنعت و معدن', 'code' => 'bim'];
             case '053':
-                return ['bank_name' => 'Kar Afarin', 'label' => 'بانک کارآفرین', 'code' => 'kar'];
+                return ['bank_name' => 'Kar Afarin', 'label' => 'کارآفرین', 'code' => 'kar'];
             case '016':
-                return ['bank_name' => 'Keshavarzi', 'label' => 'بانک کشاورزی', 'code' => 'bki'];
+                return ['bank_name' => 'Keshavarzi', 'label' => 'کشاورزی', 'code' => 'bki'];
             case '010':
-                return ['bank_name' => 'Central Bank', 'label' => 'بانک مرکزی', 'code' => null];
+                return ['bank_name' => 'Central Bank', 'label' => 'مرکزی', 'code' => null];
             case '014':
-                return ['bank_name' => 'Maskan', 'label' => 'بانک مسکن', 'code' => 'maskan'];
+                return ['bank_name' => 'Maskan', 'label' => 'مسکن', 'code' => 'maskan'];
             case '012':
-                return ['bank_name' => 'Mellat', 'label' => 'بانک ملت', 'code' => 'mellat'];
+                return ['bank_name' => 'Mellat', 'label' => 'ملت', 'code' => 'mellat'];
             case '017':
-                return ['bank_name' => 'Melli Iran', 'label' => 'بانک ملی ایران', 'code' => 'bmi'];
+                return ['bank_name' => 'Melli Iran', 'label' => 'ملی', 'code' => 'bmi'];
             default:
                 return ['bank_name' => 'Unknown', 'label' => 'سایر', 'code' => null];
         }
@@ -63,53 +63,53 @@ if ( ! function_exists('getNameWithCard') ) {
         $code = substr($card, 0, 6);
         switch ($code) {
             case '603799':
-                return ['label' => 'بانک ملی ایران', 'code' => 'bmi'];
+                return ['label' => 'ملی', 'code' => 'bmi'];
             case '589210':
-                return ['label' => 'بانک سپه', 'code' => 'sepah'];
+                return ['label' => 'سپه', 'code' => 'sepah'];
             case '627648':
-                return ['label' => 'بانک توسعه صادرات', 'code' => 'edbi'];
+                return ['label' => 'توسعه صادرات', 'code' => 'edbi'];
             case '627961':
-                return ['label' => 'بانک صنعت و معدن', 'code' => 'bim'];
+                return ['label' => 'صنعت و معدن', 'code' => 'bim'];
             case '603770':
-                return ['label' => 'بانک کشاورزی', 'code' => 'bki'];
+                return ['label' => 'کشاورزی', 'code' => 'bki'];
             case '628023':
-                return ['label' => 'بانک مسکن', 'code' => 'maskan'];
+                return ['label' => 'مسکن', 'code' => 'maskan'];
             case '627760':
-                return ['label' => 'پست بانک ایران', 'code' => 'post'];
+                return ['label' => 'پست بانک', 'code' => 'post'];
             case '502908':
-                return ['label' => 'بانک توسعه تعاون', 'code' => 'tt'];
+                return ['label' => 'توسعه تعاون', 'code' => 'tt'];
             case '627412':
-                return ['label' => 'بانک اقتصاد نوین', 'code' => 'en'];
+                return ['label' => 'اقتصاد نوین', 'code' => 'en'];
             case '622106':
-                return ['label' => 'بانک پارسیان', 'code' => 'parsian'];
+                return ['label' => 'پارسیان', 'code' => 'parsian'];
             case '502229':
-                return ['label' => 'بانک پاسارگاد', 'code' => 'bpi'];
+                return ['label' => 'پاسارگاد', 'code' => 'bpi'];
             case '627488':
-                return ['label' => 'بانک کارآفرین', 'code' => 'kar'];
+                return ['label' => 'کارآفرین', 'code' => 'kar'];
             case '621986':
-                return ['label' => 'بانک سامان', 'code' => 'sb'];
+                return ['label' => 'سامان', 'code' => 'sb'];
             case '639346':
-                return ['label' => 'بانک سینا', 'code' => 'sina'];
+                return ['label' => 'سینا', 'code' => 'sina'];
             case '639607':
-                return ['label' => 'بانک سرمایه', 'code' => 'sarmayeh'];
+                return ['label' => 'سرمایه', 'code' => 'sarmayeh'];
             case '636214':
-                return ['label' => 'بانک آینده', 'code' => 'ba'];
+                return ['label' => 'آینده', 'code' => 'ba'];
             case '502806':
-                return ['label' => 'بانک شهر', 'code' => 'shahr'];
+                return ['label' => 'شهر', 'code' => 'shahr'];
             case '502938':
-                return ['label' => 'بانک دی', 'code' => 'day'];
+                return ['label' => 'دی', 'code' => 'day'];
             case '603769':
-                return ['label' => 'بانک صادرات', 'code' => 'bsi'];
+                return ['label' => 'صادرات', 'code' => 'bsi'];
             case '610433':
-                return ['label' => 'بانک ملت', 'code' => 'mellat'];
+                return ['label' => 'ملت', 'code' => 'mellat'];
             case '627353':
-                return ['label' => 'بانک تجارت', 'code' => 'tejarat'];
+                return ['label' => 'تجارت', 'code' => 'tejarat'];
             case '589463':
-                return ['label' => 'بانک رفاه', 'code' => 'rb'];
+                return ['label' => 'رفاه', 'code' => 'rb'];
             case '627381':
-                return ['label' => 'بانک انصار', 'code' => 'ansar'];
+                return ['label' => 'انصار', 'code' => 'ansar'];
             case '639370':
-                return ['label' => 'بانک مهر اقتصاد', 'code' => 'sepah'];
+                return ['label' => 'مهر اقتصاد', 'code' => 'sepah'];
             default:
                 return ['label' => 'سایر', 'code' => null];
         }
