@@ -41,17 +41,17 @@ class Order extends Model
 
     public function market()
     {
-        return $this->belongsTo(modelNamespace('Notification'), 'market_id');
+        return $this->belongsTo(modelNamespace('Market'), 'market_id');
     }
 
     public function orderMakers()
     {
-        return $this->hasMany(modelNamespace('Notification'));
+        return $this->hasMany(modelNamespace('OrderMaker'));
     }
 
     public function orderTakers()
     {
-        return $this->hasMany(modelNamespace('Notification'));
+        return $this->hasMany(modelNamespace('OrderTaker'));
     }
 
     public function wallet()

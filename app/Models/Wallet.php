@@ -4,7 +4,7 @@ namespace ExchangeModel\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Milyoonex\Facades\MongoBaseRepositoryFacade;
+use Exchange\Facades\MongoBaseRepositoryFacade;
 
 class Wallet extends Model
 {

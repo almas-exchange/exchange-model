@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Carbon;
+
 if ( ! function_exists('modelNamespace') )
 {
     function modelNamespace($model)
