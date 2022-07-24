@@ -41,7 +41,7 @@ class OrderMaker extends Model
 
     public function getCandleMarketNameAttribute()
     {
-        return strtolower(str_replace('/', '', $this->makeHidden('order')->order->market->name));
+        return strtolower(str_replace('/', '_', $this->makeHidden('order')->order->market->name));
     }
 
     public function getMarketIdAttribute()
