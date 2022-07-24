@@ -57,6 +57,16 @@ class Wallet extends Model
         return $this->hasMany(modelNamespace('IrtWithdrawal'));
     }
 
+    public function sellMarkets()
+    {
+        return $this->hasMany(modelNamespace('Market'), 'currency_id','currency_id');
+    }
+
+    public function buyMarkets()
+    {
+        return $this->hasMany(modelNamespace('Market'), 'base_currency_id','currency_id');
+    }
+
     public function sellOrders()
     {
         return $this->hasMany(modelNamespace('Order'), 'wallet_id')->where('side', '=', 'sell');
@@ -85,10 +95,10 @@ class Wallet extends Model
     public function getBuyFreezeAttribute()
     {
         $freeze = 0;
-        foreach ($this->makeHidden('buyOrders')->buyOrders as $buyOrder) {
-            $buyTable = str_replace(' ', '', strtolower(str_replace('/', '_', $buyOrder->market_name))) . '_order_buy';
+        foreach ($this->makeHidden('buyMarkets')->buyMarkets as $market) {
+            $buyTable = str_replace(' ', '', strtolower(str_replace('/', '_', $market->name))) . '_order_buy';
 
-            $buyOrders = MongoBaseRepositoryFacade::getRecords($buyTable, ['order_id' => $buyOrder->id]);
+            $buyOrders = MongoBaseRepositoryFacade::getRecords($buyTable, ['base_wallet_id' => $this->id]);
             foreach ($buyOrders as $buyOrder) {
                 $remain = is_null($buyOrder['limit']) ? $buyOrder['value_remain'] : mulAmount($buyOrder['limit'], $buyOrder['remain']);
                 $freeze = addAmount($freeze, $remain);
@@ -100,13 +110,16 @@ class Wallet extends Model
     public function getSellFreezeAttribute()
     {
         $freeze = 0;
+        foreach ($this->makeHidden('sellMarkets')->sellMarkets as $market) {
+            $sellTable = str_replace(' ', '', strtolower(str_replace('/', '_', $market->name))) . '_order_sell';
 
-        foreach ($this->makeHidden('sellOrders')->sellOrders as $sellOrder) {
-            $sellTable = str_replace(' ', '', strtolower(str_replace('/', '_', $sellOrder->market_name))) . '_order_sell';
-            $buyOrders = MongoBaseRepositoryFacade::getRecords($sellTable, ['order_id' => $sellOrder->id]);
-            $freeze = addAmount($freeze, $buyOrders->sum('value_remain'));
-
+            $sellOrders = MongoBaseRepositoryFacade::getRecords($sellTable, ['wallet_id' => $this->id]);
+            foreach ($sellOrders as $sellOrder) {
+                $freeze = addAmount($freeze, $sellOrder['remain']);
+            }
         }
+
+
 
         return (string)$freeze;
     }
