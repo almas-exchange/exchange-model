@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
-use Laravel\Passport\HasApiTokens;
 // end passport-auth traits
 use ExchangeModel\Enum\User2faEnum;
 use ExchangeModel\Enum\UserGenderEnum;
@@ -17,7 +16,7 @@ use function PHPUnit\Framework\isNull;
 
 class User extends Model
 {
-    use SoftDeletes, HasApiTokens, Authenticatable, Authorizable;
+    use SoftDeletes, Authenticatable, Authorizable;
 
     protected $table = 'users';
 
@@ -107,20 +106,6 @@ class User extends Model
     {
         return $this->hasMany(modelNamespace('WithdrawTrustedAddress'));
     }
-
-    // start passport-auth methods
-    public function findForPassport($username)
-    {
-        return $this->where(function ($query) use ($username) {
-            $query->where('email', $username)->orWhere('mobile', $username);
-        })->first();
-    }
-
-    public function validateForPassportPasswordGrant($password)
-    {
-        return Hash::check($password, $this->password);
-    }
-    // end passport-auth methods
 
     public function getMobileMaskAttribute()
     {
