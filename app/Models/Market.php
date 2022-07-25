@@ -53,7 +53,7 @@ class Market extends Model
         return $this->hasManyThrough(modelNamespace('OrderMaker'), modelNamespace('Order'), 'market_id', 'order_id')->orderBy('id', 'desc');
     }
 
-    public function orderTransactionsByLimit($limit=20)
+    public function orderTransactionsByLimit($limit = 20)
     {
         return $this->hasManyThrough(modelNamespace('OrderMaker'), modelNamespace('Order'), 'market_id', 'order_id')->orderBy('id', 'desc')->limit($limit);
     }
@@ -71,6 +71,6 @@ class Market extends Model
 
     public function getQueueNameAttribute()
     {
-        return "mx_" . str_replace(' ', '', strtolower(str_replace('/','', $this->name)));
+        return "mx_" . str_replace(' ', '', strtolower(str_replace('/', '_', $this->name)));
     }
 }
