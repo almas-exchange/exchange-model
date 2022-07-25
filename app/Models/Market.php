@@ -60,7 +60,7 @@ class Market extends Model
 
     public function getLastPriceAttribute()
     {
-        return Cache::rememberForever(strtolower(str_replace('/', '', $this->name)) . '_price', function () {
+        return Cache::rememberForever(strtolower(str_replace('/', '_', $this->name)) . '_price', function () {
             if ($this->orderTransactions->count() > 0) {
                 return $this->orderTransactions->first()->limit;
             } else {
