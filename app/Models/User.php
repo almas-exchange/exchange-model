@@ -4,11 +4,6 @@ namespace ExchangeModel\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-// start passport-auth traits
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Auth\Authenticatable;
-use Laravel\Lumen\Auth\Authorizable;
-// end passport-auth traits
 use ExchangeModel\Enum\User2faEnum;
 use ExchangeModel\Enum\UserGenderEnum;
 
@@ -16,7 +11,7 @@ use function PHPUnit\Framework\isNull;
 
 class User extends Model
 {
-    use SoftDeletes, Authenticatable, Authorizable;
+    use SoftDeletes;
 
     protected $table = 'users';
 
