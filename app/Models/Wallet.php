@@ -4,7 +4,7 @@ namespace ExchangeModel\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Exchange\Facades\MongoBaseRepositoryFacade;
+use Illuminate\Support\Facades\DB;
 
 class Wallet extends Model
 {
@@ -59,12 +59,12 @@ class Wallet extends Model
 
     public function sellMarkets()
     {
-        return $this->hasMany(modelNamespace('Market'), 'currency_id','currency_id');
+        return $this->hasMany(modelNamespace('Market'), 'currency_id', 'currency_id');
     }
 
     public function buyMarkets()
     {
-        return $this->hasMany(modelNamespace('Market'), 'base_currency_id','currency_id');
+        return $this->hasMany(modelNamespace('Market'), 'base_currency_id', 'currency_id');
     }
 
     public function sellOrders()
@@ -97,8 +97,8 @@ class Wallet extends Model
         $freeze = 0;
         foreach ($this->makeHidden('buyMarkets')->buyMarkets as $market) {
             $buyTable = str_replace(' ', '', strtolower(str_replace('/', '_', $market->name))) . '_order_buy';
+            $buyOrders = DB::connection('mongodb')->table($buyTable)->where(['base_wallet_id' => $this->id])->get();
 
-            $buyOrders = MongoBaseRepositoryFacade::getRecords($buyTable, ['base_wallet_id' => $this->id]);
             foreach ($buyOrders as $buyOrder) {
                 $remain = is_null($buyOrder['limit']) ? $buyOrder['value_remain'] : mulAmount($buyOrder['limit'], $buyOrder['remain']);
                 $freeze = addAmount($freeze, $remain);
@@ -112,13 +112,12 @@ class Wallet extends Model
         $freeze = 0;
         foreach ($this->makeHidden('sellMarkets')->sellMarkets as $market) {
             $sellTable = str_replace(' ', '', strtolower(str_replace('/', '_', $market->name))) . '_order_sell';
+            $sellOrders = DB::connection('mongodb')->table($sellTable)->where(['wallet_id' => $this->id])->get();
 
-            $sellOrders = MongoBaseRepositoryFacade::getRecords($sellTable, ['wallet_id' => $this->id]);
             foreach ($sellOrders as $sellOrder) {
                 $freeze = addAmount($freeze, $sellOrder['remain']);
             }
         }
-
 
 
         return (string)$freeze;
