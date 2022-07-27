@@ -66,7 +66,7 @@ class Market extends Model
 
     public function getCurrencyCategoriesAttribute()
     {
-        return $this->makeHidden('currency')->currency()->first()->currencyCategories->pluck('title');
+        return $this->makeHidden('currency')->currency()->first()->categories->pluck('title');
     }
 
     public function getLastPriceAttribute()
