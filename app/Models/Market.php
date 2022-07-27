@@ -25,8 +25,7 @@ class Market extends Model
 
     protected $appends = [
         'last_price',
-        'queue_name',
-        'currency_categories'
+        'queue_name'
     ];
 
     public function currency()
@@ -62,11 +61,6 @@ class Market extends Model
     public function usersFavorite()
     {
         return $this->belongsToMany(modelNamespace('User'), 'favorite_markets', 'market_id', 'user_id');
-    }
-
-    public function getCurrencyCategoriesAttribute()
-    {
-        return $this->makeHidden('currency')->currency()->first()->categories->pluck('title');
     }
 
     public function getLastPriceAttribute()
