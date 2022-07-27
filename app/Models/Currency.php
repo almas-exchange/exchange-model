@@ -76,4 +76,9 @@ class Currency extends Model
     {
         return $this->hasMany(modelNamespace('WithdrawTrustedAddress'));
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(modelNamespace('CurrencyCategory'), 'currency_currency_category', 'currency_id', 'currency_category_id');
+    }
 }

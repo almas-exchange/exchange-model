@@ -26,6 +26,7 @@ class Market extends Model
     protected $appends = [
         'last_price',
         'queue_name',
+        'currency_categories'
     ];
 
     public function currency()
@@ -56,6 +57,16 @@ class Market extends Model
     public function orderTransactionsByLimit($limit = 20)
     {
         return $this->hasManyThrough(modelNamespace('OrderMaker'), modelNamespace('Order'), 'market_id', 'order_id')->orderBy('id', 'desc')->limit($limit);
+    }
+
+    public function usersFavorite()
+    {
+        return $this->belongsToMany(modelNamespace('User'), 'favorite_markets', 'market_id', 'user_id');
+    }
+
+    public function getCurrencyCategoriesAttribute()
+    {
+        return $this->makeHidden('currency')->currency()->first()->currencyCategories->pluck('title');
     }
 
     public function getLastPriceAttribute()

@@ -102,6 +102,11 @@ class User extends Model
         return $this->hasMany(modelNamespace('WithdrawTrustedAddress'));
     }
 
+    public function favoriteMarkets()
+    {
+        return $this->belongsToMany(modelNamespace('Market'), 'favorite_markets','user_id', 'market_id');
+    }
+
     public function getMobileMaskAttribute()
     {
         if(! empty($this->mobile)) {
