@@ -87,6 +87,11 @@ class Wallet extends Model
         return $this->hasMany(modelNamespace('SystemOrder'), 'base_wallet_id')->where('side', '=', 'buy');
     }
 
+    public function transactions()
+    {
+        return $this->hasMany(modelNamespace('Transaction'));
+    }
+
     public function getMarketNameAttribute()
     {
         return $this->market->name;
