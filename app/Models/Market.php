@@ -76,6 +76,6 @@ class Market extends Model
 
     public function getQueueNameAttribute()
     {
-        return "mx_" . str_replace(' ', '', strtolower(str_replace('/', '_', $this->name)));
+        return str_replace(' ', '', strtolower(str_replace('/', '_', $this->name)));
     }
 }
