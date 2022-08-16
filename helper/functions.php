@@ -270,3 +270,26 @@ if ( ! function_exists('config_path'))
         return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
     }
 }
+
+
+if ( ! function_exists('getTableName'))
+{
+    function getTableName($marketName)
+    {
+        $marketName = str_replace(' ', '', strtolower(str_replace('/', '_', $marketName)));
+        return [
+            'sell'      => $marketName . '_order_sell',
+            'buy'       => $marketName . '_order_buy',
+            'sell_pool' => $marketName . '_order_sell_pool',
+            'buy_pool'  => $marketName . '_order_buy_pool'
+        ];
+    }
+}
+
+if ( ! function_exists('getQueueName'))
+{
+    function getQueueName($marketName)
+    {
+        return str_replace(' ', '', strtolower(str_replace('/', '_', $marketName)));
+    }
+}
