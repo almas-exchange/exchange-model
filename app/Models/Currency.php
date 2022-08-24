@@ -33,6 +33,11 @@ class Currency extends Model
         return $this->hasMany(modelNamespace('Wallet'));
     }
 
+    public function wallet()
+    {
+        return $this->hasOne(modelNamespace('Wallet'))->where('user_id', auth()->check() ? auth()->user()->id : '');
+    }
+
     public function markets()
     {
         return $this->hasMany(modelNamespace('Market'), 'currency_id');
