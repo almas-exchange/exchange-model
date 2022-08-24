@@ -24,6 +24,6 @@ class Notification extends Model
 
     public function notificationType()
     {
-        return $this->belongsTo(modelNamespace('User'));
+        return $this->belongsTo(modelNamespace('NotificationType'));
     }
 }
