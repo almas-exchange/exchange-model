@@ -8,7 +8,7 @@ use ImanRjb\Mongodb\Eloquent\Model;
 use MongoDB\BSON\Decimal128;
 
 
-class SystemOrderMongo extends Model
+class MarketsSystemOrder extends Model
 {
     protected $connection = 'mongodb';
     protected $table = 'markets_system_orders';
