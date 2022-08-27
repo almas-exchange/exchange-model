@@ -8,23 +8,16 @@ use ImanRjb\Mongodb\Eloquent\Model;
 use MongoDB\BSON\Decimal128;
 
 
-class OrderBook extends Model
+class SystemOrderMongo extends Model
 {
     protected $connection = 'mongodb';
+    protected $table = 'system_orders';
     protected $guarded = [];
     protected $casts = [
-        'limit'      => Decimal128Cast::class,
-        'value'      => Decimal128Cast::class,
-        'amount'     => Decimal128Cast::class,
-        'init_price' => Decimal128Cast::class,
+        'stop_limit' => Decimal128Cast::class,
         'stop_price' => Decimal128Cast::class,
-
+        'stop_value' => Decimal128Cast::class,
     ];
 
-
-    public function setDynamicTable($dynamicType)
-    {
-        return $this->setTable($dynamicType);
-    }
 
 }
