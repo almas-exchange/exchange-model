@@ -10,6 +10,7 @@ use MongoDB\BSON\Decimal128;
 class MarketInformation extends Model
 {
     protected $connection = 'mongodb';
+    protected $table = 'markets_info';
     protected $guarded = [];
     protected $casts = [
         'volume'          => Decimal128Cast::class,
@@ -18,13 +19,5 @@ class MarketInformation extends Model
         'low'             => Decimal128Cast::class,
         'yesterday_price' => Decimal128Cast::class,
         'last_price'      => Decimal128Cast::class
-
     ];
-
-
-    public function setDynamicTable($dynamicType)
-    {
-        return $this->setTable($dynamicType);
-    }
-
 }
