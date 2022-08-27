@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace ExchangeModel\Models;
 
 use ExchangeModel\Casts\Decimal128Cast;
 use Illuminate\Database\Eloquent\Casts\Attribute;
