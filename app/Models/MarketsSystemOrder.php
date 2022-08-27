@@ -11,7 +11,7 @@ use MongoDB\BSON\Decimal128;
 class SystemOrderMongo extends Model
 {
     protected $connection = 'mongodb';
-    protected $table = 'system_orders';
+    protected $table = 'markets_system_orders';
     protected $guarded = [];
     protected $casts = [
         'stop_limit' => Decimal128Cast::class,
