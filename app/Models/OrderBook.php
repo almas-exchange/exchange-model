@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use ImanRjb\Mongodb\Eloquent\Model;
 use MongoDB\BSON\Decimal128;
 
+
 class OrderBook extends Model
 {
     protected $connection = 'mongodb';
