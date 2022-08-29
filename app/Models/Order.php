@@ -2,6 +2,7 @@
 
 namespace ExchangeModel\Models;
 
+use ExchangeModel\Casts\OrderDecimal128Cast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
@@ -35,6 +36,10 @@ class Order extends Model
     ];
 
     protected $casts = [
+        'limit' => OrderDecimal128Cast::class,
+        'amount' => OrderDecimal128Cast::class,
+        'value' => OrderDecimal128Cast::class,
+        'init_price' => OrderDecimal128Cast::class,
         'side' => OrderSideEnum::class,
         'status' => OrderStatusEnum::class,
     ];

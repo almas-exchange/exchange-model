@@ -2,6 +2,7 @@
 
 namespace ExchangeModel\Models;
 
+use ExchangeModel\Casts\OrderTransactionDecimal128Cast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -22,6 +23,13 @@ class OrderMaker extends Model
         'created_at',
         'updated_at',
         'deleted_at',
+    ];
+
+    protected $casts = [
+        'limit' => OrderTransactionDecimal128Cast::class,
+        'amount' => OrderTransactionDecimal128Cast::class,
+        'value' => OrderTransactionDecimal128Cast::class,
+        'fee' => OrderTransactionDecimal128Cast::class,
     ];
 
     public function order()
