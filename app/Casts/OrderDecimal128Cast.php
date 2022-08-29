@@ -32,7 +32,7 @@ class OrderDecimal128Cast implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes)
     {
-        if (!$value) {
+        if (!$value || $value == 0) {
             return null;
         }
 
