@@ -18,7 +18,7 @@ class Decimal128Cast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return (string)new Decimal128($value);
+        return $value ? (string)new Decimal128($value) : '-';
     }
 
     /**
@@ -32,6 +32,10 @@ class Decimal128Cast implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes)
     {
+        if (!$value) {
+            return null;
+        }
+
         return new Decimal128($value);
     }
 }

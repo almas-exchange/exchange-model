@@ -18,7 +18,7 @@ class OrderDecimal128Cast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return (string)new Decimal128($value);
+        return $value ? (string)new Decimal128($value) : '-';
     }
 
     /**
@@ -32,6 +32,10 @@ class OrderDecimal128Cast implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes)
     {
+        if (!$value) {
+            return null;
+        }
+
         $market = $model->market;
         $value = match ($key) {
             'limit' => bcdiv($value, 1, $market->base_currency_decimal),

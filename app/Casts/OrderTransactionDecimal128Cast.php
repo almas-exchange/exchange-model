@@ -18,7 +18,7 @@ class OrderTransactionDecimal128Cast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return (string)new Decimal128($value);
+        return $value ? (string)new Decimal128($value) : '-';
     }
 
     /**
@@ -32,8 +32,11 @@ class OrderTransactionDecimal128Cast implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes)
     {
-        $market = $model->order->market;
+        if (!$value) {
+            return null;
+        }
 
+        $market = $model->order->market;
         if ($key == 'fee') {
             if ($attributes['fee_currency_id'] == config('fee.mit_currency_id')) {
                 $value = bcdiv($value, 1, config('fee.mit_currency_decimal'));
