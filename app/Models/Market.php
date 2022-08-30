@@ -43,6 +43,16 @@ class Market extends Model
         return $this->hasMany(modelNamespace('Order'));
     }
 
+    public function orderBooks()
+    {
+        return $this->hasMany(modelNamespace('OrderBook'));
+    }
+
+    public function marketInformation()
+    {
+        return $this->hasOne(modelNamespace('MarketInformation'));
+    }
+
     public function systemOrders()
     {
         return $this->hasMany(modelNamespace('SystemOrder'));

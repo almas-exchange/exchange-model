@@ -36,12 +36,15 @@ class Order extends Model
     ];
 
     protected $casts = [
-        'limit' => OrderDecimal128Cast::class,
-        'amount' => OrderDecimal128Cast::class,
-        'value' => OrderDecimal128Cast::class,
-        'init_price' => OrderDecimal128Cast::class,
-        'side' => OrderSideEnum::class,
-        'status' => OrderStatusEnum::class,
+        'limit'            => OrderDecimal128Cast::class,
+        'amount'           => OrderDecimal128Cast::class,
+        'value'            => OrderDecimal128Cast::class,
+        'init_price'       => OrderDecimal128Cast::class,
+        'side'             => OrderSideEnum::class,
+        'status'           => OrderStatusEnum::class,
+        'average_limit'    => OrderStatusEnum::class,
+        'execution_value'  => OrderStatusEnum::class,
+        'execution_amount' => OrderStatusEnum::class,
     ];
 
     public function market()

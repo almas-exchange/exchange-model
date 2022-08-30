@@ -2,10 +2,9 @@
 
 namespace ExchangeModel\Models;
 
-use ExchangeModel\Casts\Decimal128Cast;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+
+use ExchangeModel\Casts\OrderBookDecimal128Cast;
 use ImanRjb\Mongodb\Eloquent\Model;
-use MongoDB\BSON\Decimal128;
 
 
 class OrderBook extends Model
@@ -13,11 +12,13 @@ class OrderBook extends Model
     protected $connection = 'mongodb';
     protected $guarded = [];
     protected $casts = [
-        'limit'      => Decimal128Cast::class,
-        'value'      => Decimal128Cast::class,
-        'amount'     => Decimal128Cast::class,
-        'init_price' => Decimal128Cast::class,
-        'stop_price' => Decimal128Cast::class,
+        'limit'        => OrderBookDecimal128Cast::class,
+        'value'        => OrderBookDecimal128Cast::class,
+        'amount'       => OrderBookDecimal128Cast::class,
+        'init_price'   => OrderBookDecimal128Cast::class,
+        'stop_price'   => OrderBookDecimal128Cast::class,
+        'remain'       => OrderBookDecimal128Cast::class,
+        'value_remain' => OrderBookDecimal128Cast::class,
 
     ];
 
@@ -25,6 +26,11 @@ class OrderBook extends Model
     public function setDynamicTable($dynamicType)
     {
         return $this->setTable($dynamicType);
+    }
+
+    public function market()
+    {
+        return $this->belongsTo(modelNamespace('Market'), 'market_id');
     }
 
 }

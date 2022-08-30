@@ -5,7 +5,7 @@ namespace ExchangeModel\Casts;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use MongoDB\BSON\Decimal128;
 
-class OrderDecimal128Cast implements CastsAttributes
+class OrderBookDecimal128Cast implements CastsAttributes
 {
     /**
      * Cast the given value.
@@ -39,12 +39,12 @@ class OrderDecimal128Cast implements CastsAttributes
         $market = $model->market;
         $value = match ($key) {
             'limit' => bcdiv($value, 1, $market->base_currency_decimal),
-            'amount' => bcdiv($value, 1, $market->currency_decimal),
             'value' => bcdiv($value, 1, max($market->currency_decimal, $market->base_currency_decimal)),
+            'amount' => bcdiv($value, 1, $market->currency_decimal),
             'init_price' => bcdiv($value, 1, $market->base_currency_decimal),
-            'average_limit' => bcdiv($value, 1, $market->base_currency_decimal),
-            'execution_value' => bcdiv($value, 1, max($market->currency_decimal, $market->base_currency_decimal)),
-            'execution_amount' => bcdiv($value, 1, $market->currency_decimal),
+            'stop_price' => bcdiv($value, 1, $market->base_currency_decimal),
+            'remain' => bcdiv($value, 1, $market->currency_decimal),
+            'value_remain' => bcdiv($value, 1, max($market->currency_decimal, $market->base_currency_decimal)),
         };
         return new Decimal128($value);
     }
