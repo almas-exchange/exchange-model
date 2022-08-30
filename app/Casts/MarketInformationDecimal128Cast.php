@@ -18,7 +18,7 @@ class MarketInformationDecimal128Cast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return $value ? (string)new Decimal128($value) : null;
+        return (string)new Decimal128($value);
     }
 
     /**
