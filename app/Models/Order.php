@@ -42,9 +42,9 @@ class Order extends Model
         'init_price'       => OrderDecimal128Cast::class,
         'side'             => OrderSideEnum::class,
         'status'           => OrderStatusEnum::class,
-        'average_limit'    => OrderStatusEnum::class,
-        'execution_value'  => OrderStatusEnum::class,
-        'execution_amount' => OrderStatusEnum::class,
+        'average_limit'    => OrderDecimal128Cast::class,
+        'execution_value'  => OrderDecimal128Cast::class,
+        'execution_amount' => OrderDecimal128Cast::class,
     ];
 
     public function market()
