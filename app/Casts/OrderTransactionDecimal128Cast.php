@@ -46,7 +46,7 @@ class OrderTransactionDecimal128Cast implements CastsAttributes
                 $value = bcdiv($value, 1, $market->base_currency_decimal);
             }
 
-            return new Decimal128($value);
+            return (string)new Decimal128($value);
         }
 
         $value = match ($key) {
@@ -54,6 +54,6 @@ class OrderTransactionDecimal128Cast implements CastsAttributes
             'amount' => bcdiv($value, 1, $market->currency_decimal),
             'value' => bcdiv($value, 1, max($market->currency_decimal, $market->base_currency_decimal))
         };
-        return new Decimal128($value);
+        return (string)new Decimal128($value);
     }
 }

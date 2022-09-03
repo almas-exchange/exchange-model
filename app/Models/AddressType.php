@@ -9,6 +9,7 @@ class AddressType extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'address_types';
 
     protected $hidden = [];

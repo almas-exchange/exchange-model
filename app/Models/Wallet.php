@@ -10,6 +10,7 @@ class Wallet extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'wallets';
 
     protected $hidden = [];

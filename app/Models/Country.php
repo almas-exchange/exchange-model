@@ -9,6 +9,7 @@ class Country extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'countries';
 
     protected $hidden = [];

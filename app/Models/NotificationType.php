@@ -9,6 +9,7 @@ class NotificationType extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'notification_types';
 
     protected $hidden = [];

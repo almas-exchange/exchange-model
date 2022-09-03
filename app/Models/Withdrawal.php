@@ -10,6 +10,7 @@ class Withdrawal extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'withdrawals';
 
     protected $hidden = [];

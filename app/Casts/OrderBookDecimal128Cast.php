@@ -46,6 +46,6 @@ class OrderBookDecimal128Cast implements CastsAttributes
             'remain' => bcdiv($value, 1, $market->currency_decimal),
             'value_remain' => bcdiv($value, 1, max($market->currency_decimal, $market->base_currency_decimal)),
         };
-        return new Decimal128($value);
+        return (string)new Decimal128($value);
     }
 }

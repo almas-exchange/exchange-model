@@ -10,6 +10,7 @@ class Currency extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'currencies';
 
     protected $hidden = [

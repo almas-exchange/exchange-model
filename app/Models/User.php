@@ -13,6 +13,7 @@ class User extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'users';
 
     protected $hidden = [

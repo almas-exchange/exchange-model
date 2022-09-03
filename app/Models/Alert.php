@@ -9,6 +9,7 @@ class Alert extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'alerts';
 
     protected $hidden = [];

@@ -10,6 +10,7 @@ class Deposit extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'deposits';
 
     protected $hidden = [];

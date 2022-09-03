@@ -13,6 +13,7 @@ class Order extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'orders';
 
     protected $hidden = [

@@ -9,6 +9,7 @@ class WithdrawTrustedAddress extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'withdraw_trusted_addresses';
 
     protected $hidden = [];

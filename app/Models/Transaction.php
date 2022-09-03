@@ -10,6 +10,7 @@ class Transaction extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'transactions';
 
     protected $hidden = [];

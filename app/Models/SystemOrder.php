@@ -11,6 +11,7 @@ class SystemOrder extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'system_orders';
 
     protected $hidden = [];

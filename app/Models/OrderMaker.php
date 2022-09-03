@@ -10,6 +10,7 @@ class OrderMaker extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'order_makers';
 
     protected $appends = [

@@ -10,6 +10,7 @@ class Market extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'markets';
 
     protected $hidden = [

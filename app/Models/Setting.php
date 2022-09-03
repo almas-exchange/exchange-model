@@ -9,6 +9,7 @@ class Setting extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'settings';
 
     protected $hidden = [];

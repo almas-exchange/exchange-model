@@ -9,6 +9,7 @@ class IrtWithdrawal extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'irt_withdrawals';
 
     protected $hidden = [];

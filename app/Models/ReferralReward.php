@@ -9,6 +9,7 @@ class ReferralReward extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'referral_rewards';
 
     protected $hidden = [];

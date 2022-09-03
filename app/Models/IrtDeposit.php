@@ -10,6 +10,7 @@ class IrtDeposit extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'irt_deposits';
 
     protected $hidden = [];

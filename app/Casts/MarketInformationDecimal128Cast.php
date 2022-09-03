@@ -33,7 +33,7 @@ class MarketInformationDecimal128Cast implements CastsAttributes
     public function set($model, $key, $value, $attributes)
     {
         if (!$value || $value == 0) {
-            return new Decimal128(0);
+            return (string)new Decimal128(0);
         }
 
         $market = $model->market;
@@ -45,6 +45,6 @@ class MarketInformationDecimal128Cast implements CastsAttributes
             'yesterday_price' => bcdiv($value, 1, $market->base_currency_decimal),
             'last_price' => bcdiv($value, 1, $market->base_currency_decimal),
         };
-        return new Decimal128($value);
+        return (string)new Decimal128($value);
     }
 }

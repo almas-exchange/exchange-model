@@ -9,6 +9,7 @@ class Network extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'networks';
 
     protected $hidden = [];

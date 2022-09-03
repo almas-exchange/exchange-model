@@ -9,6 +9,7 @@ class CurrencyCategory extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'currency_categories';
 
     protected $hidden = [];

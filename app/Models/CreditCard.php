@@ -9,6 +9,7 @@ class CreditCard extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'credit_cards';
 
     protected $hidden = [];

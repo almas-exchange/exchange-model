@@ -10,6 +10,7 @@ class OrderTaker extends Model
 {
     use SoftDeletes;
 
+    protected $connection = 'mysql';
     protected $table = 'order_takers';
 
     protected $hidden = [];
