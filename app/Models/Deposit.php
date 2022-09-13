@@ -28,7 +28,7 @@ class Deposit extends Model
 
     public function wallet()
     {
-        return $this->belongsTo(modelNamespace('WithdrawTrustedAddress'));
+        return $this->belongsTo(modelNamespace('Wallet'));
     }
 
     public function network()
