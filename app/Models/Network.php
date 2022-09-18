@@ -25,8 +25,8 @@ class Network extends Model
     {
         return $this->belongsToMany(modelNamespace('Currency'))
             ->withPivot([
-                'deposit_status', 'withdrawal_status',
-                'mx_balance', 'contract', 'decimal', 'withdrawal_fee'
+                'deposit_status', 'withdrawal_status', 'contract',
+                'decimal', 'withdrawal_fee', 'min_deposit', 'min_withdrawal'
             ]);
     }
 

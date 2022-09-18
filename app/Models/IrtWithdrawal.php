@@ -21,9 +21,9 @@ class IrtWithdrawal extends Model
         'deleted_at',
     ];
 
-    public function creditCard()
+    public function bankAccounts()
     {
-        return $this->belongsTo(modelNamespace('CreditCard'));
+        return $this->belongsTo(modelNamespace('BankAccount'));
     }
 
     public function wallet()

@@ -10,10 +10,10 @@ class MarketInformationDecimal128Cast implements CastsAttributes
     /**
      * Cast the given value.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  string  $key
-     * @param  mixed  $value
-     * @param  array  $attributes
+     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param string $key
+     * @param mixed $value
+     * @param array $attributes
      * @return string
      */
     public function get($model, $key, $value, $attributes)
@@ -24,10 +24,10 @@ class MarketInformationDecimal128Cast implements CastsAttributes
     /**
      * Prepare the given value for storage.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  string  $key
-     * @param  array  $value
-     * @param  array  $attributes
+     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param string $key
+     * @param array $value
+     * @param array $attributes
      * @return Decimal128
      */
     public function set($model, $key, $value, $attributes)

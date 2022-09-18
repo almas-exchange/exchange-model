@@ -5,12 +5,12 @@ namespace ExchangeModel\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreditCard extends Model
+class BankAccount extends Model
 {
     use SoftDeletes;
 
     protected $connection = 'mysql';
-    protected $table = 'credit_cards';
+    protected $table = 'bank_accounts';
 
     protected $hidden = [];
 
@@ -23,7 +23,6 @@ class CreditCard extends Model
 
     protected $appends = [
         'bank_name', 'bank_label',
-
     ];
 
 

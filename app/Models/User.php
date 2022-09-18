@@ -23,7 +23,6 @@ class User extends Model
     protected $guarded = [
         'id',
         'user_group_id',
-        'shahkar' ,
         'block',
         'verified_at',
         'created_at',
@@ -33,7 +32,6 @@ class User extends Model
 
     protected $casts = [
         'gender' => UserGenderEnum::class,
-        '2fa'    => User2faEnum::class,
     ];
 
     protected $appends = [
@@ -53,9 +51,9 @@ class User extends Model
         return $this->hasMany(modelNamespace('Wallet'));
     }
 
-    public function creditCards()
+    public function bankAccounts()
     {
-        return $this->hasMany(modelNamespace('CreditCard'));
+        return $this->hasMany(modelNamespace('BankAccount'));
     }
 
     public function country()
