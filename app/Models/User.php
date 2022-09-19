@@ -128,12 +128,20 @@ class User extends Model
                 . '@'
                 . $explodedMail[1];
             
-            } else {
+            } elseif (strlen($explodedMail[0]) == 4) {
                 return substr($explodedMail[0], 0, 1)
-                . str_repeat('*', strlen($explodedMail[0]) - 2)
-                . substr($explodedMail[0], -1)
-                . '@'
-                . $explodedMail[1];
+                    . '**'
+                    . substr($explodedMail[0], -1)
+                    . '@'
+                    . $explodedMail[1];
+            } elseif (strlen($explodedMail[0]) == 3) {
+                return substr($explodedMail[0], 0, 1)
+                    . '*'
+                    . substr($explodedMail[0], -1)
+                    . '@'
+                    . $explodedMail[1];
+            } else {
+                return $this->email;
             }
         }
         return null;
