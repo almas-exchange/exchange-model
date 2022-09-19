@@ -40,12 +40,12 @@ class BankAccount extends Model
     public function getBankNameAttribute()
     {
         $information = getNameWithCard($this->card);
-        return $information['code'];
+        return $information['label'];
     }
 
     public function getBankLabelAttribute()
     {
         $information = getNameWithCard($this->card);
-        return $information['label'];
+        return $information['code'];
     }
 }
