@@ -43,6 +43,11 @@ class OrderMaker extends Model
         return $this->belongsTo(modelNamespace('Currency'), 'fee_currency_id');
     }
 
+    public function orderTaker()
+    {
+        return $this->hasOne(modelNamespace('OrderTaker'), 'order_maker_id');
+    }
+
     public function getTypeAttribute()
     {
         return 'maker';

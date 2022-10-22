@@ -45,7 +45,7 @@ class OrderTaker extends Model
 
     public function orderMaker()
     {
-        return $this->hasOne(modelNamespace('OrderMaker'),'order_maker_id');
+        return $this->belongsTo(modelNamespace('OrderMaker'), 'order_maker_id');
     }
 
     public function getTypeAttribute()
